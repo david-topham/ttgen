@@ -1,0 +1,124 @@
+LaTeX Truth Table Generator v1.0
+
+by Equilibrium - equilibriumtr@gmail.com - ayberkozgur.blogspot.com
+
+Generates a truth table code for LaTeX from the given logic proposition.
+
+A.HOW TO INSTALL
+
+Run these commands from the directory where you extracted the archive (the directory which contains this very file):
+
+	$ make
+	$ sudo make install
+
+B.HOW TO UNINSTALL
+
+Run this command from the directory where you extracted the archive (the directory which contains this very file):
+
+	$ sudo make uninstall
+
+C.HOW TO USE
+
+After installing, run ttgen with a logical proposition as a command line argument:
+
+	$ ttgen "any logical proposition"
+
+The program will output the truth table of the given proposition to the command line. You can redirect its output
+with > to a file if you prefer. 
+
+You can use ( and ) to denote any parentheses, single lowercase or uppercase letters to denote variables and any of the 
+following logic operators (conventional precedence rules apply):
+	~      not
+	&      and
+	|      or
+	^      xor
+	->     implies
+	<->    if and only if
+
+Adding -d or --detailed will include each subproposition on the truth table.
+Adding -h or --hline will put a horizontal line between each permutation on the truth table.
+
+An example usage would be:
+
+	$ ttgen -h "(A^~(B | p) -> q & ~A)<-> r"
+
+Which produces this output:
+
+\begin{table}[ht]
+\caption{Truth Table}
+\centering
+\begin{tabular}{|c|c|c|c|c||c|}
+\hline
+$ A $ & $ B $ & $ p $ & $ q $ & $ r $ & $ (((A \oplus  \neg (B \vee p)) \rightarrow (q \wedge  \neg A)) \leftrightarrow r) $ \\
+\hline
+F & F & F & F & F & T \\
+\hline
+F & F & F & F & T & F \\
+\hline
+F & F & F & T & F & F \\
+\hline
+F & F & F & T & T & T \\
+\hline
+F & F & T & F & F & F \\
+\hline
+F & F & T & F & T & T \\
+\hline
+F & F & T & T & F & F \\
+\hline
+F & F & T & T & T & T \\
+\hline
+F & T & F & F & F & F \\
+\hline
+F & T & F & F & T & T \\
+\hline
+F & T & F & T & F & F \\
+\hline
+F & T & F & T & T & T \\
+\hline
+F & T & T & F & F & F \\
+\hline
+F & T & T & F & T & T \\
+\hline
+F & T & T & T & F & F \\
+\hline
+F & T & T & T & T & T \\
+\hline
+T & F & F & F & F & F \\
+\hline
+T & F & F & F & T & T \\
+\hline
+T & F & F & T & F & F \\
+\hline
+T & F & F & T & T & T \\
+\hline
+T & F & T & F & F & T \\
+\hline
+T & F & T & F & T & F \\
+\hline
+T & F & T & T & F & T \\
+\hline
+T & F & T & T & T & F \\
+\hline
+T & T & F & F & F & T \\
+\hline
+T & T & F & F & T & F \\
+\hline
+T & T & F & T & F & T \\
+\hline
+T & T & F & T & T & F \\
+\hline
+T & T & T & F & F & T \\
+\hline
+T & T & T & F & T & F \\
+\hline
+T & T & T & T & F & T \\
+\hline
+T & T & T & T & T & F \\
+\hline
+\end{tabular}
+\label{table:tt1}
+\end{table}
+
+This table can then be placed inside a tex document.
+
+E-mail me for any suggestions or bug reports.
