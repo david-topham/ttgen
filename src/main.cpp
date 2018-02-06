@@ -32,7 +32,8 @@ void displayHelp(){
     cout << "	-s, --sort         Prints alphabetical order." << endl;
 	cout << "	    --help         Prints this text." << endl;
 	cout << endl;
-	cout << "Elementary propositions must consist of a single character of A-Z or a-z. Use '(' and ')' to denote parentheses." << endl;
+	cout << "Elementary propositions must consist of a single character of A-Z or a-z. Use '(' and ')' to denote parentheses." 
+             << " Put the proposition in double quotes. e.g. \"p&q\"" << endl;
 	cout << "Following logic operators are valid:" << endl;
 	cout << "~      not" << endl;
 	cout << "&      and" << endl;
