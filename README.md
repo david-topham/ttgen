@@ -4,7 +4,7 @@ __INSTALLATION:__
 
 * `git clone https://github.com/david-topham/cs113_spring_2018.git ttgen`
 * `make -C ttgen install`
-* 'ttgen [OPTION] <BOOLEAN EXPRESSION>`
+* `ttgen [OPTION] <BOOLEAN EXPRESSION>`
 
 **OPTION:**
 * `-d, --detailed` Includes all subpropositions of given proposition.
@@ -13,7 +13,7 @@ __INSTALLATION:__
 * `-r, --reverse`  Prints reverse order for TT rows.
 * `-c, --circuits` Prints 0/1 instead of F/T.
 * `-s, --sort`     Prints alphabetical order.
-*     `--help`     Prints this text.
+* `--help`         Prints this text.
 
 **BOOLEAN EXPRESSION:**
 * `[A-Z] [a-z]` Available letters
