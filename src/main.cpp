@@ -20,6 +20,9 @@ using namespace std;
 void displayHelp(){
 	cout << "LaTeX Truth Table Generator v1.0" << endl;
 	cout << "by Equilibrium - equilibriumtr@gmail.com - ayberkozgur.blogspot.com" << endl;
+	cout << "Modified by: " << endl
+		 << "David Topham, Brian Zhao, Mingyun Kim" << endl
+		 << "https://www.github.com/david-topham/ttgen" << endl << endl;
 	cout << "Generates a truth table code for LaTeX from the given logic proposition." << endl;
 	cout << endl;
 	cout << "Usage: ttgen [OPTIONS] proposition" << endl;
@@ -53,17 +56,26 @@ int main(int argc, char **argv) {
 		bool mute = false, hline = false, detailed = false, 
              reverse = false, circuit = false, sort = false;
 		for(int i = 1; i<argc; i++){
-			if(!strcmp("--hline",argv[i]) || !strcmp("-h",argv[i]))
+			if (argv[i][0] == '-' && argv[i][1] != '-')
+				for (int j = 1; argv[i][j]; j++){
+					if (argv[i][j] == 'h')		hline=true;
+					else if (argv[i][j] == 'm')	mute=true;
+					else if (argv[i][j] == 'd')	detailed=true;
+					else if (argv[i][j] == 'r')	reverse=true;
+					else if (argv[i][j] == 'c')	circuit=true;
+					else if (argv[i][j] == 's')	sort=true;
+				}
+			else if(!strcmp("--hline",argv[i]))
 				hline=true;
-			else if (!strcmp("--mute",argv[i]) || !strcmp("-m",argv[i]))
+			else if (!strcmp("--mute",argv[i]))
 				mute=true;
-			else if(!strcmp("--detailed",argv[i]) || !strcmp("-d",argv[i]))
+			else if(!strcmp("--detailed",argv[i]))
 				detailed=true;
-			else if(!strcmp("--reverse",argv[i]) || !strcmp("-r",argv[i]))
+			else if(!strcmp("--reverse",argv[i]))
 				reverse=true;
-           	else if(!strcmp("--circuit",argv[i]) || !strcmp("-c",argv[i]))
+           	else if(!strcmp("--circuit",argv[i]))
 				circuit=true;
-           	else if(!strcmp("--sort",argv[i]) || !strcmp("-s",argv[i]))
+           	else if(!strcmp("--sort",argv[i]))
 				sort=true;
 			else{
 				if(propositionString.empty())
