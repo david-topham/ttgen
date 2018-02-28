@@ -6,6 +6,15 @@ __INSTALLATION:__
 * `make -C ttgen install`
 * `ttgen [OPTION] <BOOLEAN EXPRESSION>`
 
+__UPDATE:__
+
+* `make uninstall`
+* `git pull`
+* `make install`
+
+* If you have an old version, make sure uninstall it.
+* Because of old objects files, it may not compile.
+
 **OPTION:**
 * `-d, --detailed` Includes all subpropositions of given proposition.
 * `-h, --hline`    Prints a horizontal line between each permutation.
