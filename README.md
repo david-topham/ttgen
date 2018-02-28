@@ -1,17 +1,16 @@
-# cs113_Spring_2018
+# cs113_ttgen
 
 __INSTALLATION:__
 
-* `git clone https://github.com/david-topham/cs113_spring_2018.git ttgen`
-* `make -C ttgen install`
-* `ttgen [OPTION] <BOOLEAN EXPRESSION>`
+* `git clone https://github.com/david-topham/ttgen.git ttgen`<br>
+* `make -C ttgen install`<br>
 
 __UPDATE:__
 
-* `make uninstall`
-* `git pull`
-* `make install`
-
+* Go to the git repository<br>
+* `make uninstall`<br>
+* `git pull`<br>
+* `make install`<br>
 > If you have an old version, make sure uninstall it. <br>
 > Because of old objects files, it may not compile.
  
