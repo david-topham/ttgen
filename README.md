@@ -12,9 +12,9 @@ __UPDATE:__
 * `git pull`
 * `make install`
 
-* If you have an old version, make sure uninstall it.
-* Because of old objects files, it may not compile.
-
+> If you have an old version, make sure uninstall it. <br>
+> Because of old objects files, it may not compile.
+ 
 **OPTION:**
 * `-d, --detailed` Includes all subpropositions of given proposition.
 * `-h, --hline`    Prints a horizontal line between each permutation.
