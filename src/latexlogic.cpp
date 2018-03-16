@@ -7,10 +7,11 @@
 
 #include "latexlogic.h"
 
-void latexlogic::printTruthTable(const char* propositionString,bool mute,bool hline,bool detailed,bool reverse,bool circuit, bool sort){
+void latexlogic::printTruthTable(const char* propositionString,bool mute,bool hline,bool detailed,bool reverse,bool circuit, bool sort, bool fit){
 	propositionparser pp(propositionString);
 	pp.getPropositions();
 
+	if (fit) std::cout << "\\resizebox{\\columnwidth}{!}{" << std::endl;
 	if (!mute) {
 		std::cout << "\\begin{table}[ht]" << std::endl;
 		std::cout << "\\caption{Truth Table}" << std::endl;
@@ -54,6 +55,7 @@ void latexlogic::printTruthTable(const char* propositionString,bool mute,bool hl
 		std::cout << "\\label{table:tt1}" << std::endl;
 		std::cout << "\\end{table}" << std::endl;
 	}
+	if (fit) std::cout << "}" << std::endl;
 }
 
 void latexlogic::printPermutation(std::vector<simpleproposition*>* simplePropositions,std::vector<proposition*>* propositions,bool hline,bool detailed,bool circuit){
