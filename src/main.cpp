@@ -3,10 +3,14 @@
  *
  *  Created on: Oct 5, 2010
  *      Author: equilibrium
- *  Modifed on: Feb 14, 2018
+ *  Modified on: Feb 14, 2018
  *      Mingyun Kim and David Topham
  *         added options for reverse, mute, circuit, and sort
  *         changed negation to \sim instead of \neg
+ *
+ *	Modified on: Mar 16, 2018
+ *		Mingyun Kim
+ *			added an option for resize
  */
 
 #include "latexlogic.h"
@@ -33,6 +37,7 @@ void displayHelp(){
 	cout << "	-r, --reverse      Prints reverse order for TT rows." << endl;
     cout << "	-c, --circuits     Prints 0/1 instead of F/T." << endl;
     cout << "	-s, --sort         Prints alphabetical order." << endl;
+	cout << "	-f, --fit          Resizes the table to fit in slide." << endl;
 	cout << "	    --help         Prints this text." << endl;
 	cout << endl;
 	cout << "Elementary propositions must consist of a single character of A-Z or a-z. Use '(' and ')' to denote parentheses." 
@@ -54,7 +59,7 @@ int main(int argc, char **argv) {
 	else{
 		string propositionString;
 		bool mute = false, hline = false, detailed = false, 
-             reverse = false, circuit = false, sort = false;
+             reverse = false, circuit = false, sort = false, fit = false;
 		for(int i = 1; i<argc; i++){
 			if (argv[i][0] == '-' && argv[i][1] != '-')
 				for (int j = 1; argv[i][j]; j++){
@@ -64,6 +69,7 @@ int main(int argc, char **argv) {
 					else if (argv[i][j] == 'r')	reverse=true;
 					else if (argv[i][j] == 'c')	circuit=true;
 					else if (argv[i][j] == 's')	sort=true;
+					else if (argv[i][j] == 'f') fit=true;
 				}
 			else if(!strcmp("--hline",argv[i]))
 				hline=true;
@@ -77,6 +83,8 @@ int main(int argc, char **argv) {
 				circuit=true;
            	else if(!strcmp("--sort",argv[i]))
 				sort=true;
+           	else if(!strcmp("--fit",argv[i]))
+				fit=true;
 			else{
 				if(propositionString.empty())
 					propositionString.assign(argv[i]);
@@ -91,6 +99,6 @@ int main(int argc, char **argv) {
 			return EXIT_FAILURE;
 		}
 
-		latexlogic::printTruthTable(propositionString.c_str(),mute,hline,detailed,reverse,circuit,sort);
+		latexlogic::printTruthTable(propositionString.c_str(),mute,hline,detailed,reverse,circuit,sort,fit);
 	}
 }

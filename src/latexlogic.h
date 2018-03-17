@@ -17,7 +17,7 @@
 #include "simpleproposition.h"
 
 namespace latexlogic{
-	void printTruthTable(const char*,bool,bool,bool,bool,bool,bool);
+	void printTruthTable(const char*,bool,bool,bool,bool,bool,bool,bool);
 	void printPermutation(std::vector<simpleproposition*>*,std::vector<proposition*>*,bool,bool,bool);
 }
 
